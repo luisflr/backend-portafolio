@@ -1,0 +1,42 @@
+### Crear un nuevo Project
+POST http://localhost:8080/api/v1/projects HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Inca Beneficios App",
+    "type_project": "Work",
+    "type_platform": "mobile",
+    "links": {
+      "iosLink": "https://apps.apple.com/pe/app/inca-beneficios/id1507998300",
+      "androidLink": "https://play.google.com/store/apps/details?id=com.apselom.inkabeneficios&hl=es_PE&gl=US"
+    },
+    "description": "This application is a platform where articles, services and in general benefits are exposed, which the collaborators of the Inca group have because they belong to work within the group.",
+    "tech_stack": ["angular", "ionic", "git", "django", "bitbucket"],
+    "image": "https://www.luisgfr.com/static/media/incabeneficios.df1da07ac1a14cd47736.webp"
+}
+
+### Obtener todos los proyectos
+GET http://localhost:8080/api/v1/projects HTTP/1.1
+
+### Obtener un proyecto
+GET http://localhost:8080/api/v1/projects/65b95ec0e049703e54264736 HTTP/1.1
+
+### Actualizar un proyecto
+PUT http://localhost:8080/api/v1/projects/65b95fc4e049703e54264739 HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Inca Beneficios App",
+    "type_project": "Work",
+    "type_platform": "mobile",
+    "links": {
+      "iosLink": "https://apps.apple.com/pe/app/inca-beneficios/id1507998300",
+      "androidLink": "https://play.google.com/store/apps/details?id=com.apselom.inkabeneficios&hl=es_PE&gl=US"
+    },
+    "description": "This application is a platform where articles, services and in general benefits are exposed, which the collaborators of the Inca group have because they belong to work within the group.",
+    "tech_stack": ["angular", "ionic", "git", "django", "bitbucket"],
+    "image": "https://www.luisgfr.com/static/media/incabeneficios.df1da07ac1a14cd47736.webp"
+}
+
+### Delete project
+DELETE http://localhost:8080/api/v1/projects/65b95fc4e049703e54264739 HTTP/1.1
