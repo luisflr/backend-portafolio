@@ -3,16 +3,16 @@ POST http://localhost:8080/api/v1/projects HTTP/1.1
 Content-Type: application/json
 
 {
-    "title": "Inca Beneficios App",
-    "type_project": "Work",
-    "type_platform": "mobile",
+    "title": "Tic Tac Toe",
+    "type_project": "personal",
+    "type_platform": "web",
     "links": {
-      "iosLink": "https://apps.apple.com/pe/app/inca-beneficios/id1507998300",
-      "androidLink": "https://play.google.com/store/apps/details?id=com.apselom.inkabeneficios&hl=es_PE&gl=US"
+      "github": "https://github.com/luisflr/Tic-Tac-Toe",
+      "web": "https://tic-tac-toe-ten-dun.vercel.app/"
     },
-    "description": "This application is a platform where articles, services and in general benefits are exposed, which the collaborators of the Inca group have because they belong to work within the group.",
-    "tech_stack": ["angular", "ionic", "git", "django", "bitbucket"],
-    "image": "https://www.luisgfr.com/static/media/incabeneficios.df1da07ac1a14cd47736.webp"
+    "description": "The classic tic-tac-toe game made as a challenge on the FrontendMentor platform. This game was made with react, vite and tailwind as main tools, vercel was also used as a host to deploy the project.",
+    "tech_stack": ["vite", "react", "typescript", "github", "tailwind" ],
+    "image": "https://private-user-images.githubusercontent.com/37960514/303750711-23c36d8f-ccdc-40c2-a93c-c41203dc8a8c.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDc1MDU3ODAsIm5iZiI6MTcwNzUwNTQ4MCwicGF0aCI6Ii8zNzk2MDUxNC8zMDM3NTA3MTEtMjNjMzZkOGYtY2NkYy00MGMyLWE5M2MtYzQxMjAzZGM4YThjLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDAyMDklMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwMjA5VDE5MDQ0MFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWZjYzAwMTc0MzJlNjFiZjM4MzA3ZTk2MTUyNGZjOTg2MmJjZmU4ZWEwNDkxM2JmNDM0ZDIyOTA3MzRhZTZhMTcmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.xI7YuqPdxV-z9crvZBJwTQwjygrW2qrGR9lnC1G15Qg"
 }
 
 ### Obtener todos los proyectos
@@ -22,20 +22,20 @@ GET http://localhost:8080/api/v1/projects HTTP/1.1
 GET http://localhost:8080/api/v1/projects/65b95ec0e049703e54264736 HTTP/1.1
 
 ### Actualizar un proyecto
-PUT http://localhost:8080/api/v1/projects/65b95fc4e049703e54264739 HTTP/1.1
+PUT http://localhost:8080/api/v1/projects/65c65bdbfe340e7d80952146 HTTP/1.1
 Content-Type: application/json
 
 {
-    "title": "Inca Beneficios App",
-    "type_project": "Work",
-    "type_platform": "mobile",
+    "title": "To-Do Platform",
+    "type_project": "personal",
+    "type_platform": "web",
     "links": {
-      "iosLink": "https://apps.apple.com/pe/app/inca-beneficios/id1507998300",
-      "androidLink": "https://play.google.com/store/apps/details?id=com.apselom.inkabeneficios&hl=es_PE&gl=US"
+      "github": "https://github.com/luisflr/todo-angular",
+      "web": "https://todo-angular-43e05.web.app/"
     },
-    "description": "This application is a platform where articles, services and in general benefits are exposed, which the collaborators of the Inca group have because they belong to work within the group.",
-    "tech_stack": ["angular", "ionic", "git", "django", "bitbucket"],
-    "image": "https://www.luisgfr.com/static/media/incabeneficios.df1da07ac1a14cd47736.webp"
+    "description": "An app where you can create, update or delete your tasks or task lists. The design of this application was inspired by the Trello platform, so it also handles features such as drag-drop.",
+    "tech_stack": ["angular", "firebase", "git", "github", "tailwind"],
+    "image": "https://www.luisgfr.com/static/media/to-do.65855ac56d78ff601e69.webp"
 }
 
 ### Delete project
