@@ -1,10 +1,20 @@
 const express = require('express');
+const cors = require('cors');
 
 // se usa mongoose para conectar con mongodbatlas
 const mongoose = require('mongoose');
 
 // instalamos dotenv y lo utilizamos para acceder a variables de entorno
 require('dotenv').config();
+
+const WHITE_LIST = [
+  'http://localhost:8800',
+  'http://localhost:8080',
+  'http://localhost:3000',
+  'http://localhost:1234',
+  'https://luisgfr.com',
+]
+
 
 // importamos las rutas
 const project_routes = require ('./routes/projects.js');
@@ -15,7 +25,18 @@ const app = express();
 const PORT = process.env.PORT || 8080;
 
 // middlewares
-app.use(express.json());
+app.use(cors({
+  origin: (origin, callback) => {
+    if (WHITE_LIST.includes(origin) || !origin) {
+      return callback(null, true)
+    }
+
+    return callback(new Error('Not allowed by CORS'))
+  }
+}));
+
+app.use(express.json())
+
 app.use('/api/v1', project_routes);
 
 //routes
