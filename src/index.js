@@ -29,7 +29,6 @@ const PORT = process.env.PORT || 8080;
 // middlewares
 app.use(cors({
   origin: (origin, callback) => {
-    console.log(origin)
     if (WHITE_LIST.includes(origin) || !origin) {
       return callback(null, true)
     }
