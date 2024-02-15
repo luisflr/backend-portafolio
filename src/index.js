@@ -41,17 +41,7 @@ app.use('/api/v1', project_routes);
 
 //routes
 app.get('/', (req, res) =>{
-  const htmlResponse = `
-    <html>
-      <head>
-        <title> Portafolio LuisGFR backend </title>
-      </head>
-      <body>
-        <h1>Proyecto backend portafolio node/express/mongoose</h1>
-      </body>
-    </html>
-  `
-  res.send(htmlResponse)
+  res.send('Proyecto backend portafolio node/express/mongoose')
 });
 
 
