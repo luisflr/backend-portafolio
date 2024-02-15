@@ -14,6 +14,7 @@ const WHITE_LIST = [
   'http://localhost:1234',
   'https://luisgfr.com',
   'https://www.luisgfr.com/',
+  'https://www.luisgfr.com',
 ]
 
 
@@ -28,6 +29,7 @@ const PORT = process.env.PORT || 8080;
 // middlewares
 app.use(cors({
   origin: (origin, callback) => {
+    console.log(origin)
     if (WHITE_LIST.includes(origin) || !origin) {
       return callback(null, true)
     }
