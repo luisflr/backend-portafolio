@@ -13,6 +13,7 @@ const WHITE_LIST = [
   'http://localhost:3000',
   'http://localhost:1234',
   'https://luisgfr.com',
+  'https://www.luisgfr.com/',
 ]
 
 
