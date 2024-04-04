@@ -1,11 +1,14 @@
-const express = require('express');
-const cors = require('cors');
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv'
+import mongoose from 'mongoose';
 
-// se usa mongoose para conectar con mongodbatlas
-const mongoose = require('mongoose');
+// importamos las rutas
+import project_routes from './routes/projects.js';
+import work_routes from './routes/works.js'
 
 // instalamos dotenv y lo utilizamos para acceder a variables de entorno
-require('dotenv').config();
+dotenv.config();
 
 const WHITE_LIST = [
   'http://localhost:8800',
@@ -18,8 +21,6 @@ const WHITE_LIST = [
 ]
 
 
-// importamos las rutas
-const project_routes = require ('./routes/projects.js');
 
 // el metodo express() retorna el método de la aplicacion
 const app = express();
@@ -40,6 +41,7 @@ app.use(cors({
 app.use(express.json())
 
 app.use('/api/v1', project_routes);
+app.use('/api/v1', work_routes);
 
 //routes
 app.get('/', (req, res) =>{

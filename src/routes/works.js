@@ -1,12 +1,13 @@
 import express from 'express';
-import project_schema from '../models/project.js';
+import work_schema from '../models/works.js';
+import { quickSort } from '../utils/quickSort.js';
 
 const router = express.Router();
 
 // create project
-router.post('/projects', (req, res) => {
-  const project = project_schema(req.body);
-  project
+router.post('/works', (req, res) => {
+  const work = work_schema(req.body);
+  work
     .save()
     .then((data) => res.json({
       status: 200,
@@ -21,14 +22,16 @@ router.post('/projects', (req, res) => {
 });
 
 // get all projects
-router.get('/projects', (req, res) => {
-  project_schema
+router.get('/works', (req, res) => {
+  work_schema
     .find()
-    .then((data) => res.json({
+    .then((data) => {
+      data = quickSort(data, 0, data.length - 1)
+      return res.json({
       status: 200,
       message: 'Successfully',
       data
-    }))
+    })})
     .catch((err) => res.json({ 
       status: 500,
       message: 'Error',
@@ -37,9 +40,9 @@ router.get('/projects', (req, res) => {
 });
 
 // get project by id
-router.get('/projects/:id', (req, res) => {
+router.get('/works/:id', (req, res) => {
   const { id } = req.params;
-  project_schema
+  work_schema
     .findById(id)
     .then((data) => res.json({
       status: 200,
@@ -54,26 +57,28 @@ router.get('/projects/:id', (req, res) => {
 });
 
 // update project PUT
-router.put('/projects/:id', (req, res) => {
+router.put('/works/:id', (req, res) => {
   const { id } = req.params;
   const {
-    title,
-    type_project,
-    type_platform,
-    links,
+    number_of_work,
+    name,
+    period,
     description,
+    stack,
     tech_stack,
-    image
+    image,
+    work_link
   } = req.body;
-  project_schema
+  work_schema
     .updateOne({_id: id}, {
-      title,
-      type_project,
-      type_platform,
-      links,
+      number_of_work,
+      name,
+      period,
       description,
+      stack,
       tech_stack,
-      image
+      image,
+      work_link
     })
     .then((data) => res.json({
       status: 200,
@@ -88,9 +93,9 @@ router.put('/projects/:id', (req, res) => {
 });
 
 // delete project
-router.delete('/projects/:id', (req, res) => {
+router.delete('/works/:id', (req, res) => {
   const { id } = req.params;
-  project_schema
+  work_schema
     .deleteOne({_id: id})
     .then((data) => res.json({
       status: 200,
@@ -105,4 +110,5 @@ router.delete('/projects/:id', (req, res) => {
 });
 
 // module.exports = router;
-export default router
+
+export default router;

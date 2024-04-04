@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const link_schema = mongoose.Schema({
   github: {
@@ -51,4 +51,6 @@ const project_schema = mongoose.Schema({
 
 });
 
-module.exports = mongoose.model('Project', project_schema);
+export default mongoose.model('Project', project_schema);
+// module.exports = mongoose.model('Project', project_schema);
+// export default project_schema;
