@@ -9,8 +9,8 @@ const partition = (items, left, right) => {
   let i = left
   let j = right
   while (i <= j) {
-    while (Number(items[i].number_of_work) < pivot) i++
-    while (Number(items[j].number_of_work) > pivot) j--
+    while (Number(items[i].number_of_work) > pivot) i++
+    while (Number(items[j].number_of_work) < pivot) j--
     if (i <= j) {
       swap(items, i, j)
       i++
