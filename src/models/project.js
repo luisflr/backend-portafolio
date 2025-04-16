@@ -47,6 +47,10 @@ const project_schema = mongoose.Schema({
   image: {
     type: String,
     required: true,
+  },
+  is_active: {
+    type: Boolean,
+    required: false
   }
 
 });
