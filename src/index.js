@@ -3,6 +3,9 @@ import cors from 'cors';
 import dotenv from 'dotenv'
 import mongoose from 'mongoose';
 
+// middleware
+import { apiLimiter } from './middleware.js';
+
 // importamos las rutas
 import project_routes from './routes/projects.js';
 import work_routes from './routes/works.js'
@@ -38,7 +41,7 @@ app.use(cors({
   }
 }));
 
-app.use(express.json())
+app.use(express.json(), apiLimiter)
 
 app.use('/api/v1', project_routes);
 app.use('/api/v1', work_routes);
